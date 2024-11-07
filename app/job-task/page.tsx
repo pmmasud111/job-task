@@ -28,7 +28,7 @@ const TaskPage: React.FC = () => {
             </div>
           ))}
       </div>
-      {showModal && <Modal />}
+      {showModal && <Modal setShowModal={setShowModal}>Modal page</Modal>}
     </div>
   );
 };
