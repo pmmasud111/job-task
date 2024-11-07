@@ -6,6 +6,7 @@ import Modal from "./components/Modal";
 
 const TaskPage: React.FC = () => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
+  console.log(showModal);
 
   return (
     <div className="flex items-center ">
@@ -28,7 +29,7 @@ const TaskPage: React.FC = () => {
             </div>
           ))}
       </div>
-      {showModal && <Modal setShowModal={setShowModal}>Modal page</Modal>}
+      {showModal && <Modal setShowModal={setShowModal} />}
     </div>
   );
 };
