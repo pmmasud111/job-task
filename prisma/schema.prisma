@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id               Int    @id @default(autoincrement())
+  firstClientName  String
+  secondClientName String
+  description      String @default("lorem ipsum dolor sit amet curn lorem ipsum")
+  comment          Int    @default(15)
+  clientCount      Int    @default(12)
+  status           String @default("incomplete")
+}
+
+model files {
+  id        Int    @id @default(autoincrement())
+  fileName  String
+  extension String
+  fileSize  Int
+}
