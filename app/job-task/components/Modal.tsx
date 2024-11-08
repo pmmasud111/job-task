@@ -24,7 +24,6 @@ const Modal: React.FC<ModalProps> = ({ setShowModal }) => {
         formData.append("fileName", getFileNameWithExtension(item));
         const response = await axios.post("/api/task-data", formData);
         if (response.status === 200) {
-          toast.success("File uploaded successfully!");
           setShowModal(false);
         }
         console.log(response.data);
