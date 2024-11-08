@@ -2,8 +2,6 @@ import axios from "axios";
 import React from "react";
 import { FiUpload } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { toast } from "react-toastify";
-
 interface ModalProps {
   setShowModal: (value: boolean) => void;
 }
