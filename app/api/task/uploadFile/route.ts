@@ -16,7 +16,7 @@ export async function POST(request: Request) {
         await prisma.files.create({
           data: {
             fileName: file.name,
-            extension: file.name,
+            extension: file.name.split(".").pop() as string,
             fileSize: file.size,
             taskId: taskId,
           },

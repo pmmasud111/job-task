@@ -1,16 +1,48 @@
+import axios from "axios";
 import Image from "next/image";
 import React from "react";
 import { FaRegCalendarAlt, FaRegComments } from "react-icons/fa";
 import { GrAttachment } from "react-icons/gr";
+import { IoClose } from "react-icons/io5";
 import { TbBrandDatabricks } from "react-icons/tb";
 
 interface TaskCardProps {
   setShowModal: (value: boolean) => void;
+  data: any;
+  setModalType: (value: string) => void;
+  setSelectedData: (value: any) => void;
+  setReFetch: (value: any) => void;
 }
 
-const TaskCard: React.FC<TaskCardProps> = ({ setShowModal }) => {
+const TaskCard: React.FC<TaskCardProps> = ({
+  setShowModal,
+  data,
+  setModalType,
+  setSelectedData,
+  setReFetch,
+}) => {
+  // delete task
+  const handleDelete = async (id: string) => {
+    try {
+      const res = await axios.delete(`/api/task?id=${id}`);
+
+      if (res.status === 200) {
+        setReFetch((prev: any) => !prev);
+      }
+    } catch (error) {
+      console.error("Failed to delete task:", error);
+    }
+  };
+
   return (
-    <div className="bg-white rounded-md p-4">
+    <div className="bg-white rounded-md p-4 relative">
+      {/* delete button */}
+      <button
+        onClick={() => handleDelete(data?.id)}
+        className="p-0.5 rounded-md bg-red-200/50 hover:bg-red-200 transition-all duration-300 absolute top-0.5 right-0.5"
+      >
+        <IoClose className="text-lg text-red-500" />
+      </button>
       {/* client profile section */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -22,7 +54,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ setShowModal }) => {
             height={1000}
             className="w-6 h-6 rounded-full object-cover"
           />
-          <h1 className="text-base text-gray-800">Abbas Uddin </h1>
+          <h1 className="text-base text-gray-800">{data?.firstClientName}</h1>
         </div>
         <div className="flex items-center gap-2">
           {/* client image */}
@@ -33,7 +65,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ setShowModal }) => {
             height={1000}
             className="w-6 h-6 rounded-full object-cover"
           />
-          <h1 className="text-base text-gray-800">Abdur Rahman</h1>
+          <h1 className="text-base text-gray-800">{data?.secondClientName}</h1>
         </div>
       </div>
       {/* description */}
@@ -41,7 +73,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ setShowModal }) => {
         <div className="flex items-center gap-2 py-4">
           <TbBrandDatabricks />
           <p className="text-sm text-gray-600 font-normal truncate pr-8">
-            Lorem ipsum dolor sit amet...
+            {data?.description}...
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -70,7 +102,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ setShowModal }) => {
           />
           <div>
             <div className="flex items-center justify-center bg-gray-200 rounded-full w-8 h-8">
-              <p className="text-gray-600 text-sm">12+</p>
+              <p className="text-gray-600 text-sm">{data?.clientCount}+</p>
             </div>
           </div>
         </div>
@@ -78,15 +110,19 @@ const TaskCard: React.FC<TaskCardProps> = ({ setShowModal }) => {
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
             <FaRegComments />
-            <p>15</p>
+            <p>{data?.commentsCount}5</p>
           </div>
           {/* file upload */}
           <div className="flex items-center gap-1">
             <GrAttachment
-              onClick={() => setShowModal(true)}
+              onClick={() => {
+                setModalType("file_upload");
+                setShowModal(true);
+                setSelectedData(data);
+              }}
               className="cursor-pointer"
             />
-            <p>15</p>
+            <p>{data?.files?.length}</p>
           </div>
         </div>
         {/* date */}
