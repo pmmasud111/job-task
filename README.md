@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Project Name**
 
-## Getting Started
+**File Uploader and Task Manager**
 
-First, run the development server:
+## **Overview**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is a simple file uploader and task manager application built with React and TypeScript. It allows users to upload files, view uploaded file names, and manage tasks.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Features**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- File Uploader: Upload multiple files with a maximum size of 100MB
+- File List: View uploaded file names
+- Task Manager: view tasks, upload files
+- Extra Feature: Add Task and Delete Task (not mentioned in original requirements)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## **Installation**
 
-## Learn More
+To install and run the project locally, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository: `git clone https://github.com/your-username/your-repo-name.git`
+2. Install dependencies: `npm install` or `yarn install`
+3. Start the development server: `npm start` or `yarn start`
+4. Open the application in your web browser: `http://localhost:3000`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## **Notes**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I have implemented all the features mentioned in the task requirements to the best of my understanding. As per my understanding, the requirements only asked for file name and number, so I have only saved the file name in the application state. However, I can modify the application to save the file itself if required.
 
-## Deploy on Vercel
+Additionally, I have implemented an extra feature to delete and add task, which was not mentioned in the original requirements.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## **Task Requirements**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+As per my understanding, the task requirements were to:
+
+- Upload files with a maximum size of 100MB
+- Display uploaded file names
+- Implement task management features (add, delete, view)
+
+Please let me know if I have missed any requirements or if there are any further modifications needed.
+
+## **License**
+
+This project is licensed under the MIT License.
+
+## **Acknowledgments**
+
+I would like to thank you for providing the task requirements and guidance throughout the project.
