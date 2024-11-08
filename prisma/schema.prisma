@@ -8,18 +8,21 @@ datasource db {
 }
 
 model Task {
-  id               Int    @id @default(autoincrement())
-  firstClientName  String
-  secondClientName String
-  description      String @default("lorem ipsum dolor sit amet curn lorem ipsum")
-  comment          Int    @default(15)
-  clientCount      Int    @default(12)
-  status           String @default("incomplete")
+  id               Int     @id @default(autoincrement())
+  firstClientName  String  @default("First client Name")
+  secondClientName String  @default("Second client Name")
+  description      String  @default("lorem ipsum dolor sit amet curn lorem ipsum")
+  comment          Int     @default(15)
+  clientCount      Int     @default(12)
+  status           String  @default("incomplete")
+  files            Files[]
 }
 
-model files {
+model Files {
   id        Int    @id @default(autoincrement())
   fileName  String
   extension String
   fileSize  Int
+  taskId    Int?
+  Task      Task?  @relation(fields: [taskId], references: [id])
 }
