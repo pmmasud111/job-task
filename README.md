@@ -17,7 +17,7 @@ This project is a simple file uploader and task manager application built with R
 
 To install and run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo-name.git`
+1. Clone the repository: `git clone https://github.com/pmmasud111/job-task.git`
 2. Install dependencies: `npm install` or `yarn install`
 3. Start the development server: `npm start` or `yarn start`
 4. Open the application in your web browser: `http://localhost:3000`
