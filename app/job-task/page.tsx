@@ -49,10 +49,30 @@ const TaskPage: React.FC = () => {
         {statusData?.map((status: any, index: number) => (
           <div key={index} className=" bg-gray-100 p-5">
             <div className="flex items-center justify-between">
-              <h1 className="text-base capitalize text-gray-800 mb-5">
-                {status.replace("_", " ")}
-              </h1>
-              <p>05</p>
+              <div className="flex items-center gap-1 mb-5">
+                {" "}
+                <div
+                  className={`bg-green-500 rounded-l-full py-3 px-3 ${
+                    status === "incomplete"
+                      ? "bg-red-500"
+                      : status === "completed"
+                      ? "bg-green-500"
+                      : status === "to_do"
+                      ? "bg-yellow-500"
+                      : status === "in_progress"
+                      ? "bg-blue-500"
+                      : status === "under_review"
+                      ? "bg-purple-500"
+                      : ""
+                  }`}
+                ></div>
+                <h1 className="text-base capitalize text-gray-800 ">
+                  {status.replace("_", " ")}
+                </h1>
+              </div>
+              <p>
+                {data?.filter((item: any) => item.status === status).length}
+              </p>
             </div>
             <div className="flex flex-col gap-4 overflow-y-scroll h-[calc(100vh-184px)] custom_scroll pr-2">
               {data
